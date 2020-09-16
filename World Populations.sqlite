@@ -1,0 +1,28 @@
+-- What years are covered in the dataset?
+SELECT DISTINCT year from population_years;
+
+-- What is the largest population size for the country of Gabon in this database across the years? 
+SELECT population from population_years
+WHERE country like 'Gabon' ORDER BY population desc 
+LIMIT 1;
+
+-- What 10 countries had the lowest population in this database across the years?
+SELECT population from population_years
+WHERE population NOT NULL
+ORDER BY population ASC 
+LIMIT 10;
+
+-- Which countries in 2010 had a population over 100 million (numbers per million) in this database across the years?
+SELECT distinct country from population_years
+WHERE year = 2010 AND population > 100
+ORDER BY country ASC;
+
+-- Which countries in the database have the word 'Island' in its name?
+SELECT distinct country from population_years
+WHERE country LIKE '%Islands%';
+
+-- What are the populations of Indonesia during 2000 and 2010?
+SELECT population from population_years
+WHERE year = 2000 and country like 'Indonesia';
+SELECT population from population_years
+WHERE year = 2010 and country like 'Indonesia';
